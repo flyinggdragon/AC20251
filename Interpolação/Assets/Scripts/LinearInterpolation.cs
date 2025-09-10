@@ -1,16 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class LinearInterpolation : MonoBehaviour
+public class LinearInterpolation : Curve
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void GenerateCurve(List<Transform> controlPoints)
     {
-        
-    }
+        for (int i = 0; i < controlPoints.Count; i++)
+        {
+            Vector3 p0 = controlPoints[i].position;
+            Vector3 p1 = controlPoints[(i + 1) % controlPoints.Count].position;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            for (int j = 0; j < pointsNumber; j++) {
+                float t = (float)j / pointsNumber;
+				Vector3 point = Vector3.Lerp(p0, p1, t);
+				InstantiateIntermediatePoints(point);
+            }
+        }
     }
 }
