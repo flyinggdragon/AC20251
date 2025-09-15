@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Curve : MonoBehaviour
 {
-    protected static int pointsNumber = 20;
+    protected static int pointsNumber = 30;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
