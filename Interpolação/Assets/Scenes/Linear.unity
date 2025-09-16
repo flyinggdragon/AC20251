@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.52, y: 2.76, z: 0}
+  m_LocalPosition: {x: -0.62, y: 2.76, z: -0.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -817,7 +817,7 @@ Transform:
   m_GameObject: {fileID: 866296218}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 0, z: 1.45}
+  m_LocalPosition: {x: -0.3, y: 0, z: 0.94}
   m_LocalScale: {x: 0.1551734, y: 0.1551734, z: 0.1551734}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -942,6 +942,7 @@ GameObject:
   - component: {fileID: 1665710330}
   - component: {fileID: 1665710336}
   - component: {fileID: 1665710334}
+  - component: {fileID: 1665710337}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1077,7 +1078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550b7a84e8e61d243b7c8222501aeeba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveMode: 1
   rb: {fileID: 1665710334}
   controlPoints:
   - {fileID: 524261173}
@@ -1088,6 +1088,18 @@ MonoBehaviour:
   intermediatesParent: {fileID: 926384072}
   speed: 10
   pointThreshold: 0.1
+--- !u!114 &1665710337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665710329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d57ca012fe8978468c954802d18b192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1725568515
 GameObject:
   m_ObjectHideFlags: 0

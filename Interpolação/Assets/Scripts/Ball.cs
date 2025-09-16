@@ -1,24 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum CurveModes
-{
-    Linear,
-    BSpline
-}
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    // Modo de curva
-    public CurveModes curveMode;
     private Curve curve;
 
     // Componentes
     public Rigidbody rb;
 
     // Pontos
-    private Transform currentPoint;
     private int currentPointIndex = 0;
     public List<Transform> controlPoints;
     public List<Transform> intermediatePoints;
@@ -29,15 +21,10 @@ public class Ball : MonoBehaviour
     public float pointThreshold = 0.1f;
     void Start()
     {
-        if (curveMode is CurveModes.Linear)
-            curve = new LinearInterpolation();
-        else if (curveMode is CurveModes.BSpline)
-            curve = new BSplineCurve();
-
+        curve = GetComponent<Curve>();
         curve.GenerateCurve(controlPoints);
 
-        intermediatePoints = new List<Transform>();
-        intermediatePoints = GetIntermediatePoints();
+        intermediatePoints = new List<Transform>(GetIntermediatePoints());
 
         if (intermediatePoints.Count > 0)
             transform.position = intermediatePoints[0].position;
@@ -60,6 +47,11 @@ public class Ball : MonoBehaviour
             currentPointIndex++;
             if (currentPointIndex >= intermediatePoints.Count)
                 currentPointIndex = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 

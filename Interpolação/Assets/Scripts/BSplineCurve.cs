@@ -8,15 +8,13 @@ public class BSplineCurve : Curve
     {
         if (controlPoints.Count < 4) return;
 
-        int n = controlPoints.Count;
-
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < controlPoints.Count; i++)
         {
             // Usa índice circular (módulo n)
-            Vector3 p0 = controlPoints[i % n].position;
-            Vector3 p1 = controlPoints[(i + 1) % n].position;
-            Vector3 p2 = controlPoints[(i + 2) % n].position;
-            Vector3 p3 = controlPoints[(i + 3) % n].position;
+            Vector3 p0 = controlPoints[i % controlPoints.Count].position;
+            Vector3 p1 = controlPoints[(i + 1) % controlPoints.Count].position;
+            Vector3 p2 = controlPoints[(i + 2) % controlPoints.Count].position;
+            Vector3 p3 = controlPoints[(i + 3) % controlPoints.Count].position;
 
             for (int j = 0; j <= pointsNumber; j++)
             {
