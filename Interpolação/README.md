@@ -38,6 +38,15 @@ Para as posições dos pontos de controle e intermediários, usa-se a estrutura 
 
 ```cs
 public class Curve : MonoBehaviour {
+  public override void GenerateCurve(List<Transform> controlPoints) {
+    //...
+        for (int i = 0; i < controlPoints.Count; i++) {
+              //...
+              InstantiateIntermediatePoints(point);
+            }
+        }
+    }
+
   public void InstantiateIntermediatePoints(Vector3 point) {
     //...
   }
